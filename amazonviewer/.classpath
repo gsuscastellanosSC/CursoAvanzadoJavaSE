@@ -2,8 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/home/sc/Documentos/gitHub/DesarrolloBackendConJava/CursoBasicodeJavaSE2018/amazonviewer/libs/makereport.jar"/>
-	<classpathentry kind="lib" path="/home/sc/Documentos/github/makerfile.jar"/>
 	<classpathentry kind="lib" path="/home/sc/Documentos/github/CursoAvanzadoJavaSE/amazonviewer/libs/makerfile.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

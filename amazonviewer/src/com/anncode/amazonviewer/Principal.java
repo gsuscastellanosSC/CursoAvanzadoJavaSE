@@ -15,7 +15,7 @@ import com.anncode.amazonviewer.model.Serie;
 import com.sc.makereport.*;
 import com.anncode.util.AmazonUtil;
 
-public class Main {
+public class Principal {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
