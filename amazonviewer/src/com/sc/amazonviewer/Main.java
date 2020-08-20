@@ -1,4 +1,4 @@
-package com.anncode.amazonviewer;
+package com.sc.amazonviewer;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -6,16 +6,16 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
-import com.anncode.amazonviewer.model.Book;
-import com.anncode.amazonviewer.model.Chapter;
-import com.anncode.amazonviewer.model.Film;
-import com.anncode.amazonviewer.model.Magazine;
-import com.anncode.amazonviewer.model.Movie;
-import com.anncode.amazonviewer.model.Serie;
+import com.sc.amazonviewer.model.Book;
+import com.sc.amazonviewer.model.Chapter;
+import com.sc.amazonviewer.model.Film;
+import com.sc.amazonviewer.model.Magazine;
+import com.sc.amazonviewer.model.Movie;
+import com.sc.amazonviewer.model.Serie;
 import com.sc.makereport.*;
-import com.anncode.util.AmazonUtil;
+import com.sc.util.AmazonUtil;
 
-public class Principal {
+public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
