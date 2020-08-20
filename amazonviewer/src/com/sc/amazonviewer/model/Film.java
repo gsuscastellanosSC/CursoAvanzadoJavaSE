@@ -1,4 +1,4 @@
-package com.anncode.amazonviewer.model;
+package com.sc.amazonviewer.model;
 
 public abstract class Film {
 	
