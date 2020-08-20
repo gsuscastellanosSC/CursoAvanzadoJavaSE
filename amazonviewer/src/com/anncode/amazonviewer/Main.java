@@ -218,9 +218,9 @@ public class Main {
 		}while(exit !=0);
 	}
 	
+	static ArrayList<Magazine> magazines = Magazine.makeMagazineList();
 	public static void showMagazines() {
-		 ArrayList<Magazine> magazines = Magazine.makeMagazineList();
-		int exit = 0;
+		int exit = 1;
 		do {
 			System.out.println();
 			System.out.println(":: MAGAZINES ::");
@@ -234,7 +234,7 @@ public class Main {
 			System.out.println();
 			
 			//Leer Respuesta usuario
-			int response = AmazonUtil.validateUserResponseMenu(0, 0);
+			int response = AmazonUtil.validateUserResponseMenu(0, magazines.size());
 			
 			if(response == 0) {
 				exit = 0;
