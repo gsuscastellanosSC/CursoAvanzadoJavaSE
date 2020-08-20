@@ -1,4 +1,4 @@
-package com.anncode.util;
+package com.sc.util;
 
 import java.util.Scanner;
 
