@@ -84,7 +84,6 @@ public class Movie extends Film implements IVisualizable {
 		System.out.println("Viste: " + toString());
 		System.out.println("Por: " + getTimeViewed() + " milisegundos");
 	}
-	
 }
 
 
