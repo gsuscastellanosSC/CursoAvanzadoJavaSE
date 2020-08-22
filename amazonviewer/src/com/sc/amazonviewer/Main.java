@@ -15,6 +15,17 @@ import com.sc.amazonviewer.model.Serie;
 import com.sc.makereport.*;
 import com.sc.util.AmazonUtil;
 
+/**
+ *<h1>AmazonViewer</h1>
+ * AmazonViewer es un programa que permite visualizar Movies, Series con sus respetivos Chapters, Books y Magazines.
+ *<p>
+ * Existen algunas reglas como todos los elementos pueden ser visualizados o leídos a excepción de las Magazines, estas sólo pueden ser vistas a modo de exposición sin ser leídas.
+ * 
+ *@author Sc
+ *@version 0001
+ *@since 2020
+ **/
+
 public class Main {
 
 	public static void main(String[] args) {

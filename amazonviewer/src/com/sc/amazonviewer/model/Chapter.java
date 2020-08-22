@@ -2,7 +2,11 @@ package com.sc.amazonviewer.model;
 
 import java.util.ArrayList;
 
-
+/**
+ * 
+ * Hereda de {@link Movie}
+ * @see Film
+ */
 
 public class Chapter extends Movie {
 	
@@ -75,7 +79,7 @@ public class Chapter extends Movie {
 			}
 		}
 		if (chapterViewedCounter == chapters.size()) {
-			getSerie().setViewed(true);
+			getSerie().view();
 		}
 	}
 }
