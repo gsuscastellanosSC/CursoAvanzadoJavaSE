@@ -14,7 +14,7 @@ public class Chapter extends Movie {
 	private int id;
 	private int sessionNumber;
 	private Serie serie;
-
+	
 	public Chapter(String title, String genre, String creator, int duration, short year, int sessionNumber, Serie serie) {
 		super(title, genre, creator, duration, year);
 		// TODO Auto-generated constructor stub
