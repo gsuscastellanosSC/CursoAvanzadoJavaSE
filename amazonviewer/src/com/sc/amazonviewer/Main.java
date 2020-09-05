@@ -4,11 +4,8 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Scanner;
-
 import com.sc.amazonviewer.model.Book;
 import com.sc.amazonviewer.model.Chapter;
-import com.sc.amazonviewer.model.Film;
 import com.sc.amazonviewer.model.Magazine;
 import com.sc.amazonviewer.model.Movie;
 import com.sc.amazonviewer.model.Serie;

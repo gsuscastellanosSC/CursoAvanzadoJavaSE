@@ -3,6 +3,7 @@ package com.sc.amazonviewer.model;
 import java.util.ArrayList;
 import java.util.Date;
 
+import com.sc.amazonviewer.model.Book.Page;
 import com.sc.util.AmazonUtil;
 
 public class Book extends Publication implements IVisualizable {
@@ -107,13 +108,13 @@ public class Book extends Publication implements IVisualizable {
 	}
 	
 	public static ArrayList<Book> makeBookList() {
-		ArrayList<Book> books = new ArrayList();
+		ArrayList<Book> books = new ArrayList<Book>();
 		String[] authors = new String[3];
 		for (int i = 0; i < 3; i++) {
 			authors[i] = "author "+i;
 		}
 		
-		ArrayList<Page> pages = new ArrayList();
+		ArrayList<Page> pages = new ArrayList<Page>();
 		int pagina = 0;
 		
 		for (int i = 0; i < 3; i++) {
