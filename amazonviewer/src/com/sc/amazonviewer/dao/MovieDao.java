@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -14,6 +15,18 @@ import static com.sc.amazonviewer.db.DataBase.*;
 public interface MovieDao extends IDBConnection{
 	
 	default Movie setMovieViewed(Movie movie) {
+		try(Connection connection = connectToDB()){
+			Statement statement = connection.createStatement();
+			String sql = "INSERT INTO "+TVIEWED+
+					"("+TVIEWED_ID_MATERIAL+", "+TVIEWED_ID_ELEMENT+","+TVIEWED_ID_USER+")"+
+					" VALUES("+1+", "+movie.getId()+", "+1+")";
+			if (statement.executeUpdate(sql)>0) {//Retorna el número de rows afectados
+				System.out.println("Pelicula se marcó en Visto");
+			}
+		}catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 		return movie;
 	}
 
@@ -55,7 +68,7 @@ public interface MovieDao extends IDBConnection{
 			
 			rs = preparedStatement.executeQuery();
 			viewed = rs.next();
-			System.out.println("hello here bug=====>>>>  "+viewed);
+			
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
