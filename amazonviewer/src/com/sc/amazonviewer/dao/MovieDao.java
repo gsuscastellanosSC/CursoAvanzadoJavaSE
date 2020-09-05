@@ -25,12 +25,13 @@ public interface MovieDao extends IDBConnection{
 			ResultSet rs = preparedStatement.executeQuery();
 			while (rs.next()) {
 				Movie movie = new Movie(
-						Integer.valueOf(rs.getString(1)),
-						rs.getString(2), 
-						rs.getString(3), 
-						rs.getString(4), 
-						Integer.valueOf(rs.getString(5)),
-						Short.valueOf(rs.getString(6)));
+						Integer.valueOf(rs.getString(TMOVIE_ID)),
+						rs.getString(TMOVIE_TITLE), 
+						rs.getString(TMOVIE_GENRE), 
+						rs.getString(TMOVIE_CREATOR), 
+						Integer.valueOf(rs.getString(TMOVIE_DURATION)),
+						Short.valueOf(rs.getString(TMOVIE_YEAR)));
+				movie.setViewed(getMovieViewed(preparedStatement, connection, Integer.valueOf(rs.getString(TMOVIE_ID))));
 				movies.add(movie);
 				}
 		}catch (SQLException e) {
@@ -39,7 +40,26 @@ public interface MovieDao extends IDBConnection{
 		return movies;
 	}
 	
-	default boolean getMovieViewed() {
-		return false;
+	private boolean getMovieViewed(PreparedStatement preparedStatement, Connection connection, int id_movie) {
+		boolean viewed = false;
+		String sql = "SELECT * FROM "+TVIEWED+
+				" WHERE " + TVIEWED_ID_MATERIAL + " =?" +
+				" AND "   + TVIEWED_ID_ELEMENT  + " =?" +
+				" AND "   + TVIEWED_ID_USER     + " =?";
+		ResultSet rs = null;
+		try {
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1, 1);
+			preparedStatement.setInt(2, id_movie);
+			preparedStatement.setInt(3, 1);
+			
+			rs = preparedStatement.executeQuery();
+			viewed = rs.next();
+			System.out.println("hello here bug=====>>>>  "+viewed);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return viewed;
 	}
 }
