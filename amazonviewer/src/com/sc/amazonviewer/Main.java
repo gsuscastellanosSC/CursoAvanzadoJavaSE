@@ -292,23 +292,25 @@ public class Main {
 	}
 	
 	public static void makeReport(Date date) throws IOException {
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd-h-m-s-S");
+		movies = Movie.makeMoviesList();
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd hh-mm-ss");
+		SimpleDateFormat formatoQuery = new SimpleDateFormat("yyyy-MM-dd");
 		String dateString = df.format(date);
 		Report report = new Report();
-		
+
 		report.setNameFile("reporte" + dateString);
 		report.setExtension("txt");
 		report.setTitle(":: VISTOS ::");
 		
 		
-		SimpleDateFormat dfNameDays = new SimpleDateFormat("E, W MMM Y");
-		dateString = dfNameDays.format(date);
+//		SimpleDateFormat dfNameDays = new SimpleDateFormat("E, W MMM Y");
+//		dateString = dfNameDays.format(date);
 		String contentReport = "Date: " + dateString + "\n\n\n";
-		
 		for (Movie movie : movies) {
 			if (movie.getIsViewed()) {
-				contentReport += movie.toString() + "\n";
-				
+				if( movie.getId() == movie.getDateMovieViewed(movie.getId(), formatoQuery.format(date))) {
+					contentReport += movie.toString() + "\n";
+				}
 			}
 		}
 		

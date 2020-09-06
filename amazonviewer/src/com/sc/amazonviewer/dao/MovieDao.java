@@ -1,6 +1,7 @@
 package com.sc.amazonviewer.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,6 +21,7 @@ public interface MovieDao extends IDBConnection{
 			String sql = "INSERT INTO "+TVIEWED+
 					"("+TVIEWED_ID_MATERIAL+", "+TVIEWED_ID_ELEMENT+","+TVIEWED_ID_USER+")"+
 					" VALUES("+1+", "+movie.getId()+", "+1+")";
+			System.out.println(sql+"       <>      "+statement);
 			if (statement.executeUpdate(sql)>0) {//Retorna el número de rows afectados
 				System.out.println("Pelicula se marcó en Visto");
 			}
@@ -49,8 +51,27 @@ public interface MovieDao extends IDBConnection{
 				}
 		}catch (SQLException e) {
 			// TODO: handle exception
+			e.printStackTrace();
 		}
 		return movies;
+	}
+	
+	default int getDateMovieViewed(int id_movie, String date) {
+		int id_element=0;
+		try(Connection connection = connectToDB()){
+			String sql = "SELECT * FROM "+TVIEWED+" WHERE "+
+						 TVIEWED_DATE_VIEWED+" BETWEEN "+"'"+date+" 00:00:00'"+"AND "+"'"+date+" 23:59:59'"+
+						"AND "+TVIEWED_ID_ELEMENT+"="+id_movie;
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			ResultSet rs = preparedStatement.executeQuery();
+			while(rs.next()) {
+				id_element = rs.getInt(TVIEWED_ID_ELEMENT);
+			}
+		}catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	return id_element;	
 	}
 	
 	private boolean getMovieViewed(PreparedStatement preparedStatement, Connection connection, int id_movie) {
