@@ -20,3 +20,6 @@ https://platzi.com/clases/java-avanzado/
                 public void perform();
             }
             //Tambien se puede usando Clase Anónimas o métodos abstractos
+***Clase#36**
+    ***Ejercicio. Lambdas***
+    
