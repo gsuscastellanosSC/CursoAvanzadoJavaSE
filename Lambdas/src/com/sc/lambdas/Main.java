@@ -9,19 +9,25 @@ public class Main {
 		OnOneListener oneListener = new OnOneListener() {
 			
 			@Override
-			public void onOne(String message) {
+			public void onOne(String message, String message2) {
 				// TODO Auto-generated method stub
-				System.out.println("one: "+ message);
+				System.out.println(message + ": " + message2);
 			}
 		};
 		
-		OnOneListener oneListener2 = (String message) -> {
-			System.out.println("one: "+ message);
+		OnOneListener oneListener2 = (String message, String message2) -> {
+			System.out.println(message + ": " +  message2);
 		};
 		
-		oneListener.onOne("Sin lambda :(");
+		OnOneListener oneListener3 = (message, message2) -> System.out.println(message + ": " +  message2);
 		
-		oneListener2.onOne("Con Lambda :)");
+		oneListener.onOne("One", "Sin lambda :(");
+		
+		oneListener2.onOne("Two","Con Lambda :)");
+		
+		oneListener3.onOne("Trhee","Lambda como Variable");
+		
+		//forEach (System.out::println); 
 	}
 
 }
