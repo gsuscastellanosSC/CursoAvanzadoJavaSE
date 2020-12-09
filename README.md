@@ -22,4 +22,17 @@ https://platzi.com/clases/java-avanzado/
             //Tambien se puede usando Clase Anónimas o métodos abstractos
 ***Clase#36**
     ***Ejercicio. Lambdas***
-    
+***Clase#37**
+    ***Lambdas como variables y Recursividad***
+        ***Lambdas como variables***
+            TypeVar nameVar = párametro               -> Cuerpo-función lambda;
+            TypeVar nameVar = (párametros, ......, n) -> Cuerpo-función lambda;
+        ***Recursividad***
+            AtomicInteger atomicInteger = new AtomicInteger(1);
+            Object.forEach(m -> System.out.println(atomicInteger.getAndIncrement()+m.getAtributte()));
+            * No usa iteraciones *
+***Clase#38**
+    ***Stream y Filter***
+        movies.stream().filter(m -> m.getIsViewed());
+***Clase#39**
+    ***Predicate y Consumer**
